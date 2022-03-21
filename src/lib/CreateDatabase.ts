@@ -17,7 +17,7 @@ export class CreateDatabase {
   private client: Axios;
   constructor({ token, host }: ICreateDatabase) {
     this.client = axios.create({
-      baseURL: host,
+      baseURL: `http://${host}`,
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -25,8 +25,12 @@ export class CreateDatabase {
   }
 
   async execute() {
-    const { data: databaseCreated } = await this.client.get<ICreatedDatabase>(
-      "/create"
+    const { data: databaseCreated } = await this.client.post<ICreatedDatabase>(
+      "/database",
+      {
+        database_type: "postgres",
+        expires_in: 0,
+      }
     );
 
     return databaseCreated;
