@@ -20,5 +20,9 @@ program
 
   const databaseCreated = await createDatabase.execute();
 
-  console.log("Temporary database created!", databaseCreated);
+  console.log(`
+  Yay! Database created
+  Database name: ${databaseCreated.database_name}
+  Expires in: ${new Date(databaseCreated.expires_in)}
+  `);
 })();
