@@ -1,10 +1,9 @@
 import axios, { Axios } from "axios";
+import { axiosErrorHandlerInterceptor } from "./AxiosErrorHandlerInterceptor";
 
 export interface ICreatedDatabase {
-  host: string;
-  username: string;
-  password: string;
-  database: string;
+  database_name: string;
+  expires_in: number;
 }
 
 export interface ICreateDatabase {
@@ -22,11 +21,15 @@ export class CreateDatabase {
         Authorization: `Bearer ${token}`,
       },
     });
+    this.client.interceptors.response.use(
+      (response) => response,
+      axiosErrorHandlerInterceptor
+    );
   }
 
   async execute() {
     const { data: databaseCreated } = await this.client.post<ICreatedDatabase>(
-      "/database",
+      "/databases",
       {
         database_type: "postgres",
         expires_in: 0,

@@ -15,7 +15,6 @@ program
 
 (async () => {
   const { token, host } = program.opts();
-
   const createDatabase = new CreateDatabase({ host, token });
 
   const databaseCreated = await createDatabase.execute();
