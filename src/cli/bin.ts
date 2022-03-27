@@ -8,7 +8,7 @@ program
   .name("tempdb-cli")
   .description("CLI to create temporary database for your tests")
   .usage("-p <password>")
-  .requiredOption("-p, --password <char>", "The password of the remote server")
+  .option("-p, --password <char>", "The password of the remote server")
   .usage("-h <host:port>")
   .requiredOption("-h, --host <char>", "The host of the remote server")
   .usage("-e <expiration>")
