@@ -7,18 +7,21 @@ export interface ICreatedDatabase {
 }
 
 export interface ICreateDatabase {
+  expires_in_ms: number;
+}
+
+export interface IServerConfig {
   host: string;
-  token: string;
-  expires_in?: Date;
+  password: string;
 }
 
 export class CreateDatabase {
   private client: Axios;
-  constructor({ token, host }: ICreateDatabase) {
+  constructor({ password, host }: IServerConfig) {
     this.client = axios.create({
       baseURL: `http://${host}`,
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${password}`,
       },
     });
     this.client.interceptors.response.use(
@@ -27,12 +30,12 @@ export class CreateDatabase {
     );
   }
 
-  async execute() {
+  async execute({ expires_in_ms }: ICreateDatabase): Promise<ICreatedDatabase> {
     const { data: databaseCreated } = await this.client.post<ICreatedDatabase>(
       "/databases",
       {
         database_type: "postgres",
-        expires_in: 0,
+        expires_in_milliseconds: expires_in_ms,
       }
     );
 
