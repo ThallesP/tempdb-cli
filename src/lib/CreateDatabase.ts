@@ -2,6 +2,8 @@ import axios, { Axios } from "axios";
 import { axiosErrorHandlerInterceptor } from "./AxiosErrorHandlerInterceptor";
 
 export interface ICreatedDatabase {
+  user: string;
+  password: string;
   database_name: string;
   expires_in: number;
 }

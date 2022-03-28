@@ -31,6 +31,8 @@ program
 
   console.log(`
   Yay! Database created
+  User: ${databaseCreated.user}
+  Password: ${databaseCreated.password}
   Database name: ${databaseCreated.database_name}
   Expires in: ${new Date(databaseCreated.expires_in)}
   `);
