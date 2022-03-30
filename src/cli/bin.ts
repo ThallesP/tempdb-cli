@@ -10,7 +10,11 @@ program
   .usage("-p <password>")
   .option("-p, --password <char>", "The password of the remote server")
   .usage("-h <host:port>")
-  .requiredOption("-h, --host <char>", "The host of the remote server")
+  .option(
+    "-h, --host <char>",
+    "The host of the remote server",
+    "tempdb.thalles.me:5676"
+  )
   .usage("-e <expiration>")
   .option(
     "-e, --expiration <char>",
