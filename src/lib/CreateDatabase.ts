@@ -2,9 +2,11 @@ import axios, { Axios } from "axios";
 import { axiosErrorHandlerInterceptor } from "./AxiosErrorHandlerInterceptor";
 
 export interface ICreatedDatabase {
+  host: string;
   user: string;
   password: string;
   database_name: string;
+  connection_string: string;
   expires_in: number;
 }
 

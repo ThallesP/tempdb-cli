@@ -35,9 +35,11 @@ program
 
   console.log(`
   Yay! Database created
+  Host: ${databaseCreated.host}
   User: ${databaseCreated.user}
   Password: ${databaseCreated.password}
   Database name: ${databaseCreated.database_name}
+  Connection string: ${databaseCreated.connection_string}
   Expires in: ${new Date(databaseCreated.expires_in)}
   `);
 })();
