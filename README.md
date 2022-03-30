@@ -9,5 +9,5 @@ You'll need tempdb-server
 ## 🚀 Running
 
 ```
-npx tempdb-cli -t <your_tempdb_server_token> -h <ip:port>
+npx tempdb-cli
 ```
