@@ -13,7 +13,7 @@ program
   .option(
     "-h, --host <char>",
     "The host of the remote server",
-    "tempdb.thalles.me:5676"
+    "https://tempdb.thalles.me"
   )
   .usage("-e <expiration>")
   .option(
