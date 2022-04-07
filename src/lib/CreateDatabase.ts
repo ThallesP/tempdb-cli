@@ -22,8 +22,12 @@ export interface IServerConfig {
 export class CreateDatabase {
   private client: Axios;
   constructor({ password, host }: IServerConfig) {
+    if (!host.startsWith("http")) {
+      host = `https://${host}`;
+    }
+
     this.client = axios.create({
-      baseURL: `http://${host}`,
+      baseURL: host,
       headers: {
         Authorization: `Bearer ${password}`,
       },
