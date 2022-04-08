@@ -1,6 +1,6 @@
 {
   "name": "tempdb-cli",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "main": "index.js",
   "author": "ThallesP. <contato@thalles.me>",
   "license": "MIT",
